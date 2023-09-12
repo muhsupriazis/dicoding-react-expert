@@ -5,6 +5,7 @@ import SiteRoute from './routes/SiteRouter';
 import Navbar from './components/Navbar';
 import Container from './components/styled/Container';
 import { asyncSetIsPreload } from './states/preload/action';
+import Loading from './components/Loading';
 
 export default function App() {
   const location = useLocation();
@@ -17,6 +18,7 @@ export default function App() {
 
   return (
     <>
+      <Loading />
       { !(location.pathname.includes('auth')) && (
         <header>
           <Container>

@@ -1,3 +1,4 @@
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../../utils/api';
 
 export const ActionType = {
@@ -15,6 +16,7 @@ export function actionAddNewComment(comment) {
 
 export function asyncActionAddNewComment({ id, content }) {
   return async (dispatch) => {
+    dispatch(showLoading());
     try {
       const comment = await api.addNewComment(id, content);
       console.log(comment);
@@ -22,5 +24,6 @@ export function asyncActionAddNewComment({ id, content }) {
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }
