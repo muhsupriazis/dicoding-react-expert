@@ -32,8 +32,6 @@ export default function DetailThreadPage() {
     }
   };
 
-  console.log(thread);
-
   if (!thread) {
     return (
       <Container>

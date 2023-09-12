@@ -19,7 +19,6 @@ export function asyncActionAddNewComment({ id, content }) {
     dispatch(showLoading());
     try {
       const comment = await api.addNewComment(id, content);
-      console.log(comment);
       dispatch(actionAddNewComment(comment));
     } catch (error) {
       alert(error.message);
