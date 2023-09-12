@@ -10,11 +10,12 @@ import User from './User';
 import { generateTime } from '../../utils/utils';
 
 export default function ListThread({ threads }) {
-  if (threads.length <= 1) {
+  if (threads.length < 1) {
     return (
       <p>Threads On Loading</p>
     );
   }
+
   return (
     <>
       { threads.map((thread) => (
