@@ -16,8 +16,12 @@ export default function LoginPage() {
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(asyncActionSetAuth({ email, password }));
-    navigate('/');
+    if (email === '' || password === '') {
+      alert('Lengkapi data!');
+    } else {
+      dispatch(asyncActionSetAuth({ email, password }));
+      navigate('/');
+    }
   };
 
   return (
