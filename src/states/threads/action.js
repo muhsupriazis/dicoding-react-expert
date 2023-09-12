@@ -1,3 +1,4 @@
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../../utils/api';
 import { generateTreadsWithUser } from '../../../utils/utils';
 
@@ -26,6 +27,7 @@ export function actionAddNewThread(thread) {
 
 export function asyncActionReceiveAllThreads() {
   return async (dispatch) => {
+    dispatch(showLoading());
     try {
       const threads = await api.getAllThreads();
       const users = await api.getAllUser();
@@ -34,16 +36,19 @@ export function asyncActionReceiveAllThreads() {
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }
 
 export function asyncActionAddNewThread({ title, body, category }) {
   return async (dispatch) => {
+    dispatch(hideLoading());
     try {
       const thread = await api.addNewThread({ title, body, category });
       dispatch(actionAddNewThread(thread));
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }

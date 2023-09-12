@@ -14,7 +14,7 @@ export default function CommentForm({ handlerSubmitComment }) {
 
   return (
     <form className="comment-form">
-      <Textarea cols="30" rows="10" placeholder="Input Content" onChange={handlerContentChange} />
+      <Textarea cols="30" rows="10" placeholder="content" onChange={handlerContentChange} />
       <Button type="submit" onClick={handlerSubmit}>Comment</Button>
     </form>
   );
